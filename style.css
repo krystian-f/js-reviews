@@ -2,6 +2,8 @@
   --main-bg-color: hsl(0, 0%, 80%);
   --review-bg-color: hsl(0, 0%, 85%);
   --review-shadow-clr: hsla(0, 0%, 0%, .2);
+  --button-clr-normal: hsla(0, 0%, 10%, .4);
+  --button-clr-hover: hsl(0, 0%, 10%);
   }
   
   html{
@@ -57,11 +59,16 @@
 }
 
 .reviews__button{
-  width:3rem;
+  width: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  color: var(--button-clr-normal);
+}
+
+.reviews__button:hover{
+  cursor: pointer;
+  color: var(--button-clr-hover);
 }
 
 /* Google 'back' google icon has different width comapret to right*/
