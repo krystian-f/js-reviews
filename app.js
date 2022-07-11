@@ -68,21 +68,21 @@ let loadReview = function(id){
 }
 
 let displayPreviousReview = function(){
-  if (reviewId>0) {
-    reviewId-=1;
+  if (reviewId > 0) {
+    reviewId -= 1;
     loadReview(reviewId);
-  } else if (reviewId<=0) {
+  } else if (reviewId <= 0) {
     reviewId = reviewsDB.length -1;
     loadReview(reviewId);
   }
 }
 
 let displayNextReview = function() {
-  if (reviewId<reviewsDB.length -1) {
-    reviewId+=1;
+  if (reviewId < reviewsDB.length -1) {
+    reviewId += 1;
     loadReview(reviewId);
-  } else if (reviewId>=reviewsDB.length -1) {
-    reviewId=0;
+  } else if (reviewId >= reviewsDB.length -1) {
+    reviewId = 0;
     loadReview(reviewId);
   }
 
