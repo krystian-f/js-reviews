@@ -39,9 +39,20 @@ let cleanReviewContent = function(){
 }
 
 let loadScore = function(id){
-  console.log(reviewsDB[id].score);
+  let score = reviewsDB[id].score;
+  let stars = ``;
+  const wholeStar = `<span class="material-symbols-outlined reviews__star">star</span>`;
+  const halfStar = `<span class="material-symbols-outlined reviews__star reviews__star--half">star_half</span>`;
+  if(Number.isInteger(score)){
+   stars = wholeStar.repeat(score);
+   return stars;
+  }else if(!Number.isInteger(score)){
+    stars = wholeStar.repeat(score);
+    stars+=halfStar;
+    return stars;
+  }
 }
-  loadScore(reviewId);
+
 
 let loadReview = function(id){
   let reviewData = 
@@ -49,12 +60,11 @@ let loadReview = function(id){
     <div class="reviews__img"><img src="${reviewsDB[id].avatar}" class="reviews__img--resize" alt="review-img"></div>
     <div class="reviews__author">${reviewsDB[id].user}</div>
     <div class="reviews__score">
-    ${reviewsDB[id].score}
+    ${loadScore(id)}
     </div>
     <div class="reviews-_description">${reviewsDB[id].review}</div>
   `;
   review.insertAdjacentHTML("afterbegin", reviewData);
-  console.log(id);
 }
 
 let displayPreviousReview = function(){
